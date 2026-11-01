@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vee-rex.github.io/remis-wanke-delight/sitemap.xml
