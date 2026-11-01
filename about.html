@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Remi's Wanke Delight</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#151515;color:#fffaf0;font-family:Poppins,sans-serif;line-height:1.8}
+a{color:inherit;text-decoration:none}
+header{background:#101010;border-bottom:1px solid #a9822c;position:sticky;top:0;z-index:10}
+.header-inner{width:92%;max-width:1150px;margin:auto;min-height:85px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{display:flex;align-items:center;gap:10px;color:#f5d477;font-family:"DM Serif Display",serif;font-size:19px}
+.brand img{width:60px;height:60px;object-fit:contain}
+nav{display:flex;align-items:center;gap:20px}
+nav a{font-size:13px}
+nav a:hover{color:#f5d477}
+#cartCount{display:inline-flex;align-items:center;justify-content:center;background:#d9a928;color:#151515;border-radius:50%;min-width:22px;height:22px;font-weight:bold}
+h1,h2,h3{font-family:"DM Serif Display",serif;font-weight:400}
+.hero{text-align:center;padding:75px 20px;background:linear-gradient(135deg,#292113,#151515);border-bottom:1px solid #40351f}
+.eyebrow{color:#f5d477;font-size:11px;letter-spacing:3px;text-transform:uppercase}
+.hero h1{font-size:clamp(38px,6vw,58px);margin:10px 0}
+.hero p{max-width:650px;margin:auto;color:#c7c2b8;font-size:14px}
+.container{width:92%;max-width:1050px;margin:auto}
+.about-section{padding:65px 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about-copy h2{font-size:34px;color:#f5d477;margin-top:0}
+.about-copy p{color:#c7c2b8;font-size:14px}
+.about-highlight{padding:30px;background:#202020;border:1px solid #403827;border-radius:10px}
+.about-highlight h3{color:#f5d477;font-size:27px;margin-top:0}
+.about-highlight p{color:#c7c2b8;font-size:13px}
+.values{padding:60px 0;background:#191919;border-top:1px solid #302719;border-bottom:1px solid #302719}
+.section-title{text-align:center;color:#f5d477;font-size:34px;margin:0 0 30px}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.value-card{padding:25px;background:#202020;border:1px solid #403827;border-radius:9px}
+.value-card h3{color:#f5d477;font-size:22px;margin:0 0 10px}
+.value-card p{color:#c7c2b8;font-size:13px;margin:0}
+.contact-section{text-align:center;padding:60px 20px}
+.contact-section h2{font-size:34px;color:#f5d477}
+.contact-section p{color:#c7c2b8;font-size:14px}
+.gold-button{display:inline-block;margin-top:15px;padding:13px 25px;background:#d9a928;color:#151515;border-radius:5px;font-weight:700;font-size:13px}
+.gold-button:hover{background:#f5d477}
+footer{padding:30px 15px;border-top:1px solid #40351f;background:#101010;color:#c7c2b8;text-align:center;font-size:12px}
+footer strong{color:#f5d477}
+@media(max-width:750px){
+.header-inner{flex-wrap:wrap;padding:12px 0}
+nav{width:100%;justify-content:center;flex-wrap:wrap;gap:13px;padding-bottom:10px}
+.brand{font-size:15px}
+.brand img{width:48px;height:48px}
+.about-grid{grid-template-columns:1fr;gap:25px}
+.value-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="header-inner">
+<a href="index.html" class="brand">
+<img src="images/rwd-logo.jpg" alt="Remi's Wanke Delight logo">
+<span>Remi's Wanke Delight</span>
+</a>
+<nav>
+<a href="index.html">Home</a>
+<a href="menu.html">Our Menu</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact</a>
+<a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<span class="eyebrow">Welcome to our kitchen</span>
+<h1>About <span style="color:#f5d477">Us</span></h1>
+<p>Discover the passion and care behind Remi's Wanke Delight.</p>
+</section>
+
+<section class="about-section">
+<div class="container about-grid">
+<div class="about-copy">
+<h2>Our Story</h2>
+<p>Welcome to Remi's Wanke Delight, a food business dedicated to serving delicious Wanke meals and satisfying spaghetti specials.</p>
+<p>We believe that good food should be enjoyable, satisfying, and prepared with care. Our menu offers different meal sizes and extra options so customers can choose what suits them.</p>
+<p>Whether you are ordering a Jumbo Wanke, Normal Wanke, Small Wanke, or Stir-Fry Spaghetti, we appreciate every opportunity to serve you.</p>
+</div>
+
+<div class="about-highlight">
+<h3>Our Promise</h3>
+<p>We aim to give our customers a pleasant food-ordering experience, with clear menu options, straightforward prices, and convenient communication.</p>
+<p>Thank you for choosing Remi's Wanke Delight. Your support means a lot to us.</p>
+</div>
+</div>
+</section>
+
+<section class="values">
+<div class="container">
+<h2 class="section-title">What We Focus On</h2>
+<div class="value-grid">
+<div class="value-card">
+<h3>Delicious Meals</h3>
+<p>Wanke meals and spaghetti specials prepared for customers who enjoy satisfying food.</p>
+</div>
+<div class="value-card">
+<h3>Customer Care</h3>
+<p>We value every customer and aim to make ordering and communication straightforward.</p>
+</div>
+<div class="value-card">
+<h3>Meal Choices</h3>
+<p>Different meal sizes, proteins, and side options give customers more ways to enjoy their food.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="contact-section">
+<h2>Ready to Place an Order?</h2>
+<p>Explore our menu or contact us to ask a question about your order.</p>
+<a class="gold-button" href="menu.html">Explore Our Menu</a>
+<a class="gold-button" href="https://wa.me/2347016253712">Chat With Us</a>
+</section>
+</main>
+
+<footer>
+<strong>Remi's Wanke Delight</strong><br>
+Megida Bus Stop · Monday–Sunday · 8 AM–5 PM<br>
+WhatsApp: <a href="https://wa.me/2347016253712">07016253712</a><br>
+Email: <a href="mailto:remilekunvictoria@gmail.com">remilekunvictoria@gmail.com</a>
+</footer>
+
+<script>
+(function(){
+  try{
+    const cart=JSON.parse(localStorage.getItem("remiWankeCart"))||[];
+    const count=cart.reduce((sum,item)=>sum+(Number(item.quantity)||0),0);
+    document.getElementById("cartCount").textContent=count;
+  }catch(error){}
+})();
+</script>
+
+</body>
+</html>

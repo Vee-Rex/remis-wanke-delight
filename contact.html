@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Remi's Wanke Delight</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#151515;color:#fffaf0;font-family:Poppins,sans-serif;line-height:1.7}
+a{text-decoration:none;color:inherit}
+header{background:#101010;border-bottom:1px solid #a9822c;position:sticky;top:0;z-index:10}
+.header-inner{width:92%;max-width:1150px;margin:auto;min-height:85px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{display:flex;align-items:center;gap:10px;color:#f5d477;font-family:"DM Serif Display",serif;font-size:19px}
+.brand img{width:60px;height:60px;object-fit:contain}
+nav{display:flex;align-items:center;gap:20px}
+nav a{font-size:13px}
+nav a:hover{color:#f5d477}
+#cartCount{display:inline-flex;align-items:center;justify-content:center;background:#d9a928;color:#151515;border-radius:50%;min-width:22px;height:22px;font-weight:bold}
+h1,h2,h3{font-family:"DM Serif Display",serif;font-weight:400}
+.hero{text-align:center;padding:65px 20px;background:linear-gradient(135deg,#292113,#151515);border-bottom:1px solid #40351f}
+.eyebrow{color:#f5d477;font-size:11px;letter-spacing:3px;text-transform:uppercase}
+.hero h1{font-size:clamp(38px,6vw,58px);margin:10px 0;color:#f5d477}
+.hero p{color:#c7c2b8;font-size:14px}
+.container{width:92%;max-width:1050px;margin:50px auto 65px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:start}
+.contact-card,.form-card{padding:28px;background:#202020;border:1px solid #403827;border-radius:10px}
+.contact-card h2,.form-card h2{color:#f5d477;font-size:29px;margin-top:0}
+.info-item{padding:15px 0;border-bottom:1px solid #403827}
+.info-item:last-child{border:0}
+.info-item strong{display:block;color:#f5d477;font-size:14px}
+.info-item span,.info-item a{color:#c7c2b8;font-size:13px;overflow-wrap:anywhere}
+.info-item a:hover{color:#f5d477}
+label{display:block;margin:15px 0 6px;color:#f5d477;font-size:13px}
+input,textarea{width:100%;padding:12px;border:1px solid #554526;border-radius:5px;background:#151515;color:#fffaf0;font:13px Poppins,sans-serif}
+textarea{min-height:120px;resize:vertical}
+input:focus,textarea:focus{outline:1px solid #d9a928}
+.submit-btn{width:100%;margin-top:18px;padding:13px;border:0;border-radius:5px;background:#d9a928;color:#151515;font:700 14px Poppins,sans-serif;cursor:pointer}
+.submit-btn:hover{background:#f5d477}
+.social-section{text-align:center;padding:45px 20px;background:#191919;border-top:1px solid #302719}
+.social-section h2{color:#f5d477;font-size:30px}
+.social-section p{color:#c7c2b8;font-size:13px}
+.social-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+.social-links a{padding:10px 18px;border:1px solid #d9a928;border-radius:5px;color:#f5d477;font-size:13px}
+.social-links a:hover{background:#d9a928;color:#151515}
+footer{padding:30px 15px;border-top:1px solid #40351f;background:#101010;color:#c7c2b8;text-align:center;font-size:12px}
+footer strong{color:#f5d477}
+@media(max-width:750px){
+.header-inner{flex-wrap:wrap;padding:12px 0}
+nav{width:100%;justify-content:center;flex-wrap:wrap;gap:13px;padding-bottom:10px}
+.brand{font-size:15px}
+.brand img{width:48px;height:48px}
+.contact-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="header-inner">
+<a href="index.html" class="brand">
+<img src="images/rwd-logo.jpg" alt="Remi's Wanke Delight logo">
+<span>Remi's Wanke Delight</span>
+</a>
+<nav>
+<a href="index.html">Home</a>
+<a href="menu.html">Our Menu</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact</a>
+<a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<span class="eyebrow">We would love to hear from you</span>
+<h1>Contact Us</h1>
+<p>Have a question or want to place an order? Get in touch with us.</p>
+</section>
+
+<div class="container">
+<div class="contact-grid">
+
+<section class="contact-card">
+<h2>Get In Touch</h2>
+
+<div class="info-item">
+<strong>Phone / WhatsApp</strong>
+<a href="https://wa.me/2347016253712" target="_blank" rel="noopener">07016253712</a>
+</div>
+
+<div class="info-item">
+<strong>Email Address</strong>
+<a href="mailto:remilekunvictoria220@gmail.com">remilekunvictoria220@gmail.com</a>
+</div>
+
+<div class="info-item">
+<strong>Our Location</strong>
+<span>Megida Bus Stop</span>
+</div>
+
+<div class="info-item">
+<strong>Opening Hours</strong>
+<span>Monday – Sunday<br>8:00 AM – 5:00 PM</span>
+</div>
+</section>
+
+<section class="form-card">
+<h2>Send Us a Message</h2>
+
+<form id="contactForm">
+<label for="customerName">Your Name</label>
+<input type="text" id="customerName" placeholder="Enter your name" required>
+
+<label for="customerPhone">Your Phone Number</label>
+<input type="tel" id="customerPhone" placeholder="Enter your phone number" required>
+
+<label for="customerMessage">Your Message</label>
+<textarea id="customerMessage" placeholder="How can we help you?" required></textarea>
+
+<button type="submit" class="submit-btn">Send Message on WhatsApp</button>
+</form>
+</section>
+
+</div>
+</div>
+
+<section class="social-section">
+<h2>Connect With Us</h2>
+<p>Follow Remi's Wanke Delight on social media.</p>
+
+<div class="social-links">
+<a href="https://www.instagram.com/irreplaceablekeji00/" target="_blank" rel="noopener">Instagram</a>
+<a href="https://www.facebook.com/irreplaceablekeji00" target="_blank" rel="noopener">Facebook</a>
+<a href="https://www.tiktok.com/@irreplaceablekeji00" target="_blank" rel="noopener">TikTok</a>
+</div>
+</section>
+</main>
+
+<footer>
+<strong>Remi's Wanke Delight</strong><br>
+Megida Bus Stop · Monday–Sunday · 8 AM–5 PM<br>
+WhatsApp: <a href="https://wa.me/2347016253712">07016253712</a><br>
+Email: <a href="mailto:remilekunvictoria220@gmail.com">remilekunvictoria220@gmail.com</a>
+</footer>
+
+<script>
+(function(){
+  try{
+    const cart=JSON.parse(localStorage.getItem("remiWankeCart"))||[];
+    const count=cart.reduce((sum,item)=>sum+(Number(item.quantity)||0),0);
+    document.getElementById("cartCount").textContent=count;
+  }catch(error){}
+})();
+
+document.getElementById("contactForm").addEventListener("submit",function(event){
+  event.preventDefault();
+
+  const name=document.getElementById("customerName").value.trim();
+  const phone=document.getElementById("customerPhone").value.trim();
+  const message=document.getElementById("customerMessage").value.trim();
+
+  if(!name||!phone||!message){
+    alert("Please complete all fields.");
+    return;
+  }
+
+  const text="Hello Remi's Wanke Delight!%0A%0A"+
+    "Name: "+encodeURIComponent(name)+"%0A"+
+    "Phone: "+encodeURIComponent(phone)+"%0A"+
+    "Message: "+encodeURIComponent(message);
+
+  window.open("https://wa.me/2347016253712?text="+text,"_blank");
+});
+</script>
+
+</body>
+</html>

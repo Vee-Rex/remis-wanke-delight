@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart | Remi's Wanke Delight</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#151515;color:#fffaf0;font-family:Poppins,sans-serif;line-height:1.7}
+a{text-decoration:none;color:inherit}
+header{background:#101010;border-bottom:1px solid #a9822c}
+.header-inner{width:92%;max-width:1150px;margin:auto;min-height:85px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{display:flex;align-items:center;gap:10px;color:#f5d477;font-family:"DM Serif Display",serif;font-size:19px}
+.brand img{width:60px;height:60px;object-fit:contain}
+nav{display:flex;gap:20px;align-items:center}
+nav a{font-size:13px}
+nav a:hover{color:#f5d477}
+#cartCount{display:inline-flex;align-items:center;justify-content:center;background:#d9a928;color:#151515;border-radius:50%;min-width:22px;height:22px;font-weight:bold}
+h1,h2,h3{font-family:"DM Serif Display",serif;font-weight:400}
+.hero{text-align:center;padding:55px 20px;background:linear-gradient(135deg,#292113,#151515);border-bottom:1px solid #40351f}
+.hero h1{font-size:clamp(36px,6vw,52px);margin:8px 0;color:#f5d477}
+.hero p{color:#c7c2b8;font-size:14px}
+.container{width:92%;max-width:950px;margin:40px auto 65px}
+.cart-box{background:#202020;border:1px solid #403827;border-radius:10px;padding:25px}
+.cart-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid #403827}
+.item-name{font-weight:600}
+.item-price{color:#f5d477;font-size:13px}
+.quantity{display:flex;align-items:center;gap:12px}
+.quantity button,.remove-btn{border:1px solid #d9a928;background:transparent;color:#f5d477;border-radius:5px;padding:5px 11px;cursor:pointer;font-size:15px}
+.quantity button:hover,.remove-btn:hover{background:#d9a928;color:#151515}
+.quantity span{min-width:20px;text-align:center}
+.remove-btn{font-size:12px;margin-top:8px}
+.line-total{font-weight:600;text-align:right;color:#f5d477}
+.summary{margin-top:25px;padding-top:20px;border-top:1px solid #554526}
+.summary-line{display:flex;justify-content:space-between;gap:15px;margin:10px 0;color:#c7c2b8}
+.summary-line.total{font-size:22px;font-weight:700;color:#f5d477}
+.delivery-note{margin-top:20px;padding:15px;background:#292418;border-left:3px solid #d9a928;color:#c7c2b8;font-size:12px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
+.action-btn{display:inline-block;text-align:center;padding:13px 20px;border-radius:5px;font-family:Poppins,sans-serif;font-weight:700;cursor:pointer;border:1px solid #d9a928}
+.primary{background:#d9a928;color:#151515}
+.secondary{background:transparent;color:#f5d477}
+.primary:hover{background:#f5d477}
+.secondary:hover{background:#d9a928;color:#151515}
+.empty{text-align:center;padding:45px 15px}
+.empty h2{color:#f5d477}
+.empty p{color:#c7c2b8}
+footer{padding:30px 15px;border-top:1px solid #40351f;background:#101010;color:#c7c2b8;text-align:center;font-size:12px}
+footer strong{color:#f5d477}
+@media(max-width:650px){
+.header-inner{flex-wrap:wrap;padding:12px 0}
+nav{width:100%;justify-content:center;flex-wrap:wrap;gap:13px;padding-bottom:10px}
+.brand{font-size:15px}
+.brand img{width:48px;height:48px}
+.cart-box{padding:15px}
+.cart-row{grid-template-columns:1fr auto;gap:10px}
+.line-total{grid-column:1/-1;text-align:left}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="header-inner">
+<a href="index.html" class="brand">
+<img src="images/rwd-logo.jpg" alt="Remi's Wanke Delight logo">
+<span>Remi's Wanke Delight</span>
+</a>
+<nav>
+<a href="index.html">Home</a>
+<a href="menu.html">Our Menu</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact</a>
+<a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<h1>Your Shopping Cart</h1>
+<p>Review your delicious selections before placing your order.</p>
+</section>
+
+<main class="container">
+<div class="cart-box">
+<div id="cartContent"></div>
+</div>
+</main>
+
+<footer>
+<strong>Remi's Wanke Delight</strong><br>
+Megida Bus Stop · Monday–Sunday · 8 AM–5 PM<br>
+WhatsApp: <a href="https://wa.me/2347016253712">07016253712</a><br>
+Email: <a href="mailto:remilekunvictoria220@gmail.com">remilekunvictoria220@gmail.com</a>
+</footer>
+
+<script>
+(function(){
+  const CART_KEY = "remiWankeCart";
+  const WHATSAPP_NUMBER = "2347016253712";
+  const content = document.getElementById("cartContent");
+
+  function getCart(){
+    try{
+      const cart = JSON.parse(localStorage.getItem(CART_KEY));
+      return Array.isArray(cart) ? cart : [];
+    }catch(error){
+      return [];
+    }
+  }
+
+  function saveCart(cart){
+    localStorage.setItem(CART_KEY,JSON.stringify(cart));
+  }
+
+  function money(amount){
+    return "₦" + Number(amount).toLocaleString("en-NG");
+  }
+
+  function renderCart(){
+    const cart = getCart();
+    const count = cart.reduce((sum,item)=>sum+(Number(item.quantity)||0),0);
+    document.getElementById("cartCount").textContent = count;
+
+    if(cart.length===0){
+      content.innerHTML = `
+        <div class="empty">
+          <h2>Your cart is empty</h2>
+          <p>You haven't added any meals yet.</p>
+          <a class="action-btn primary" href="menu.html">Explore Our Menu</a>
+        </div>`;
+      return;
+    }
+
+    let subtotal = 0;
+
+    const rows = cart.map((item,index)=>{
+      const price = Number(item.price)||0;
+      const quantity = Math.max(1,Number(item.quantity)||1);
+      const lineTotal = price*quantity;
+      subtotal += lineTotal;
+
+      return `
+        <div class="cart-row">
+          <div>
+            <div class="item-name">${escapeHTML(item.name)}</div>
+            <div class="item-price">${money(price)} each</div>
+            <button class="remove-btn" type="button" data-remove="${index}">Remove</button>
+          </div>
+          <div class="quantity">
+            <button type="button" data-change="${index}" data-delta="-1" aria-label="Decrease quantity">−</button>
+            <span>${quantity}</span>
+            <button type="button" data-change="${index}" data-delta="1" aria-label="Increase quantity">+</button>
+          </div>
+          <div class="line-total">${money(lineTotal)}</div>
+        </div>`;
+    }).join("");
+
+    content.innerHTML = `
+      <h2 style="color:#f5d477;margin-top:0">Your Items</h2>
+      ${rows}
+      <div class="summary">
+        <div class="summary-line">
+          <span>Subtotal</span><strong>${money(subtotal)}</strong>
+        </div>
+        <div class="summary-line">
+          <span>Delivery fee</span><span>To be confirmed</span>
+        </div>
+        <div class="summary-line total">
+          <span>Total before delivery</span><span>${money(subtotal)}</span>
+        </div>
+      </div>
+      <div class="delivery-note">
+        Delivery availability and charges depend on your location. The delivery fee will be confirmed with you before your order is finalized.
+      </div>
+      <div class="actions">
+        <button class="action-btn primary" id="checkoutBtn" type="button">Order on WhatsApp</button>
+        <a class="action-btn secondary" href="menu.html">Continue Shopping</a>
+        <button class="action-btn secondary" id="clearCartBtn" type="button">Clear Cart</button>
+      </div>`;
+  }
+
+  function escapeHTML(value){
+    return String(value).replace(/[&<>"']/g,function(char){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char];
+    });
+  }
+
+  content.addEventListener("click",function(event){
+    const changeButton = event.target.closest("[data-change]");
+    const removeButton = event.target.closest("[data-remove]");
+
+    if(changeButton){
+      const cart = getCart();
+      const index = Number(changeButton.dataset.change);
+      const delta = Number(changeButton.dataset.delta);
+
+      if(!cart[index]) return;
+      cart[index].quantity = (Number(cart[index].quantity)||1)+delta;
+
+      if(cart[index].quantity<=0){
+        cart.splice(index,1);
+      }
+
+      saveCart(cart);
+      renderCart();
+      return;
+    }
+
+    if(removeButton){
+      const cart = getCart();
+      cart.splice(Number(removeButton.dataset.remove),1);
+      saveCart(cart);
+      renderCart();
+      return;
+    }
+
+    if(event.target.id==="clearCartBtn"){
+      if(confirm("Are you sure you want to clear your cart?")){
+        saveCart([]);
+        renderCart();
+      }
+      return;
+    }
+
+    if(event.target.id==="checkoutBtn"){
+      const cart = getCart();
+      if(!cart.length) return;
+
+      const subtotal = cart.reduce((sum,item)=>{
+        return sum+(Number(item.price)||0)*(Number(item.quantity)||1);
+      },0);
+
+      let message = "Hello Remi's Wanke Delight! I would like to place an order:%0A%0A";
+      cart.forEach(item=>{
+        const quantity = Number(item.quantity)||1;
+        const lineTotal = (Number(item.price)||0)*quantity;
+        message += encodeURIComponent(item.name+" x "+quantity+" - "+money(lineTotal))+"%0A";
+      });
+
+      message += "%0A"+encodeURIComponent("Subtotal: "+money(subtotal));
+      message += "%0A"+encodeURIComponent("Please confirm delivery availability and delivery fee for my location.");
+      window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+message,"_blank");
+    }
+  });
+
+  renderCart();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Menu | Remi's Wanke Delight</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#151515;color:#fffaf0;font-family:Poppins,sans-serif;line-height:1.7}
+a{text-decoration:none;color:inherit}
+header{background:#101010;border-bottom:1px solid #a9822c;position:sticky;top:0;z-index:10}
+.header-inner{width:92%;max-width:1150px;margin:auto;min-height:85px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{display:flex;align-items:center;gap:10px;color:#f5d477;font-family:"DM Serif Display",serif;font-size:19px}
+.brand img{width:60px;height:60px;object-fit:contain}
+nav{display:flex;gap:20px;align-items:center}
+nav a{font-size:13px}
+nav a:hover{color:#f5d477}
+#cartCount{display:inline-flex;align-items:center;justify-content:center;background:#d9a928;color:#151515;border-radius:50%;min-width:22px;height:22px;font-weight:bold}
+.hero{text-align:center;padding:65px 20px;background:linear-gradient(135deg,#292113,#151515);border-bottom:1px solid #40351f}
+.eyebrow{color:#f5d477;letter-spacing:3px;font-size:11px;text-transform:uppercase}
+h1,h2,h3{font-family:"DM Serif Display",serif;font-weight:400}
+.hero h1{font-size:clamp(38px,6vw,58px);margin:10px 0}
+.hero p{color:#c7c2b8;font-size:14px}
+.container{width:92%;max-width:1120px;margin:auto}
+section.menu-section{padding:55px 0}
+.section-title{color:#f5d477;font-size:30px;margin:0 0 25px}
+.menu-grid,.extras-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.menu-card{display:flex;flex-direction:column;padding:24px;border:1px solid #403827;border-radius:10px;background:#202020}
+.menu-card h3{font-size:24px;margin:0 0 8px}
+.menu-card p{flex:1;color:#c7c2b8;font-size:12px}
+.price{color:#f5d477;font-size:21px;font-weight:700;margin:10px 0 15px}
+.add-to-cart{width:100%;padding:12px;border:0;border-radius:5px;background:#d9a928;color:#151515;font-family:Poppins,sans-serif;font-weight:700;cursor:pointer}
+.add-to-cart:hover{background:#f5d477}
+.add-to-cart:disabled{opacity:.7;cursor:default}
+.extra-item{display:flex;justify-content:space-between;gap:10px;padding:15px;border:1px solid #403827;border-radius:7px;background:#202020;font-size:13px}
+.extra-item strong{color:#f5d477;white-space:nowrap}
+.delivery-note{margin-top:35px;padding:22px;border-left:3px solid #d9a928;background:#242019;color:#c7c2b8;font-size:13px}
+footer{margin-top:35px;padding:30px 15px;border-top:1px solid #40351f;background:#101010;color:#c7c2b8;text-align:center;font-size:12px}
+footer strong{color:#f5d477}
+#cartMessage{text-align:center;color:#f5d477;font-size:13px;min-height:25px;margin-top:15px}
+@media(max-width:800px){
+.menu-grid,.extras-grid{grid-template-columns:repeat(2,1fr)}
+.header-inner{flex-wrap:wrap;padding:12px 0}
+nav{width:100%;justify-content:center;flex-wrap:wrap;gap:13px;padding-bottom:10px}
+}
+@media(max-width:520px){
+.menu-grid,.extras-grid{grid-template-columns:1fr}
+.brand{font-size:15px}
+.brand img{width:48px;height:48px}
+nav a{font-size:12px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="header-inner">
+<a href="index.html" class="brand">
+<img src="images/rwd-logo.jpg" alt="Remi's Wanke Delight logo">
+<span>Remi's Wanke Delight</span>
+</a>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="menu.html">Our Menu</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact</a>
+<a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+</nav>
+</div>
+</header>
+
+<main>
+<div class="hero">
+<span class="eyebrow">Freshly prepared for you</span>
+<h1>Our <span style="color:#f5d477">Menu</span></h1>
+<p>Discover our Wanke meals, spaghetti specials, proteins and delicious sides.</p>
+</div>
+
+<section class="menu-section">
+<div class="container">
+<h2 class="section-title">Our Wanke Specials</h2>
+
+<div class="menu-grid">
+
+<article class="menu-card">
+<h3>Jumbo Wanke</h3>
+<p>1-litre jumbo pack with big turkey, 2 eggs, fish, 2 ponmo, 3 beef, plantain, salad, pepper sauce or shitto, and spaghetti.</p>
+<div class="price">₦18,000</div>
+<button type="button" class="add-to-cart" data-id="jumbo-wanke" data-name="Jumbo Wanke" data-price="18000">Add to Cart</button>
+</article>
+
+<article class="menu-card">
+<h3>Normal Wanke</h3>
+<p>Big takeaway pack with medium turkey, 2 beef, spaghetti, plantain, 2 ponmo, fish and pepper sauce or shitto.</p>
+<div class="price">₦7,000</div>
+<button type="button" class="add-to-cart" data-id="normal-wanke" data-name="Normal Wanke" data-price="7000">Add to Cart</button>
+</article>
+
+<article class="menu-card">
+<h3>Small Wanke</h3>
+<p>Spaghetti, 1 egg, 1 beef, 1 ponmo and fish.</p>
+<div class="price">₦3,500</div>
+<button type="button" class="add-to-cart" data-id="small-wanke" data-name="Small Wanke" data-price="3500">Add to Cart</button>
+</article>
+
+<article class="menu-card">
+<h3>Stir-Fry Spaghetti</h3>
+<p>Big spaghetti pack prepared with diced beef and scrambled egg.</p>
+<div class="price">₦5,000</div>
+<button type="button" class="add-to-cart" data-id="stir-fry-spaghetti" data-name="Stir-Fry Spaghetti" data-price="5000">Add to Cart</button>
+</article>
+
+</div>
+<p id="cartMessage" aria-live="polite"></p>
+</div>
+</section>
+
+<section class="menu-section" style="background:#191919">
+<div class="container">
+<h2 class="section-title">Extra Proteins</h2>
+<div class="extras-grid">
+<div class="extra-item"><span>Beef</span><strong>₦200</strong></div>
+<div class="extra-item"><span>Ponmo</span><strong>₦300</strong></div>
+<div class="extra-item"><span>Fried Fish</span><strong>₦1,000 / ₦1,500</strong></div>
+<div class="extra-item"><span>Boiled Egg</span><strong>₦400</strong></div>
+<div class="extra-item"><span>Medium Turkey</span><strong>₦2,500</strong></div>
+<div class="extra-item"><span>Large Turkey</span><strong>₦3,500</strong></div>
+</div>
+</div>
+</section>
+
+<section class="menu-section">
+<div class="container">
+<h2 class="section-title">Extra Sides</h2>
+<div class="extras-grid">
+<div class="extra-item"><span>Extra Shitto</span><strong>₦400</strong></div>
+<div class="extra-item"><span>Extra Rice</span><strong>₦500</strong></div>
+<div class="extra-item"><span>Plantain</span><strong>₦500</strong></div>
+<div class="extra-item"><span>Spaghetti</span><strong>₦300</strong></div>
+<div class="extra-item"><span>Salad</span><strong>₦500</strong></div>
+</div>
+
+<div class="delivery-note">
+<strong style="color:#f5d477">Delivery information:</strong>
+Delivery availability and charges depend on your location. Please contact us to confirm the delivery fee before placing your order.
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<strong>Remi's Wanke Delight</strong><br>
+Megida Bus Stop · Monday–Sunday · 8 AM–5 PM<br>
+WhatsApp: <a href="https://wa.me/2347016253712">07016253712</a><br>
+Email: <a href="mailto:remilekunvictoria@gmail.com">remilekunvictoria@gmail.com</a>
+</footer>
+
+<script>
+(function () {
+  const CART_KEY = "remiWankeCart";
+
+  function readCart() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(CART_KEY));
+      return Array.isArray(saved) ? saved : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function updateCount() {
+    const cart = readCart();
+    const count = cart.reduce(function (total, item) {
+      return total + (Number(item.quantity) || 0);
+    }, 0);
+
+    document.getElementById("cartCount").textContent = count;
+  }
+
+  document.querySelectorAll(".add-to-cart").forEach(function (button) {
+    button.addEventListener("click", function () {
+      const id = button.getAttribute("data-id");
+      const name = button.getAttribute("data-name");
+      const price = Number(button.getAttribute("data-price"));
+
+      if (!id || !name || !Number.isFinite(price) || price <= 0) {
+        document.getElementById("cartMessage").textContent =
+          "Sorry, this item could not be added.";
+        return;
+      }
+
+      const cart = readCart();
+      const existing = cart.find(function (item) {
+        return item.id === id;
+      });
+
+      if (existing) {
+        existing.quantity = (Number(existing.quantity) || 0) + 1;
+      } else {
+        cart.push({
+          id: id,
+          name: name,
+          price: price,
+          quantity: 1
+        });
+      }
+
+      try {
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        updateCount();
+        button.textContent = "Added!";
+        document.getElementById("cartMessage").textContent =
+          name + " added to your cart successfully.";
+
+        setTimeout(function () {
+          button.textContent = "Add to Cart";
+        }, 1200);
+      } catch (error) {
+        document.getElementById("cartMessage").textContent =
+          "Your browser could not save the cart. Please check browser storage settings.";
+      }
+    });
+  });
+
+  updateCount();
+})();
+</script>
+
+</body>
+</html>

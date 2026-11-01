@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Complete your order from Remi's Wanke Delight.">
+
+    <meta name="author" content="Remi's Wanke Delight">
+
+    <link rel="icon" href="images/favicon.PNG">
+
+    <title>Checkout | Remi's Wanke Delight</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --rwd-black: #0b0b0b;
+            --rwd-dark: #111111;
+            --rwd-card: #151515;
+            --rwd-gold: #d6a84f;
+            --rwd-gold-light: #e5c477;
+            --rwd-white: #ffffff;
+            --rwd-muted: #999999;
+            --rwd-border: rgba(214, 168, 79, 0.18);
+        }
+
+        body.checkout-page {
+            background: var(--rwd-black);
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* HEADER */
+
+        .checkout-page .rwd-header {
+            background: rgba(11, 11, 11, .96);
+            border-bottom: 1px solid var(--rwd-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+
+        .checkout-page .header-inner {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .checkout-page .rwd-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .checkout-page .rwd-brand-mark {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--rwd-gold);
+            color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 800;
+            box-shadow: 0 8px 25px rgba(214, 168, 79, .15);
+        }
+
+        .checkout-page .rwd-brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .checkout-page .rwd-brand-text strong {
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .checkout-page .rwd-brand-text span {
+            color: var(--rwd-gold);
+            font-size: 8px;
+            letter-spacing: 2px;
+            margin-top: 4px;
+        }
+
+        .checkout-page #navbar ul {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .checkout-page #navbar a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            transition: .25s ease;
+        }
+
+        .checkout-page #navbar a:hover,
+        .checkout-page #navbar a.active {
+            color: var(--rwd-gold);
+        }
+
+        .checkout-page .header-cart {
+            border: 1px solid var(--rwd-border);
+            padding: 9px 14px;
+            border-radius: 30px;
+        }
+
+        .checkout-page .header-cart span {
+            color: var(--rwd-gold);
+            font-weight: 700;
+        }
+
+        /* HERO */
+
+        .checkout-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 100px 20px 80px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(214,168,79,.11), transparent 28%),
+                radial-gradient(circle at 10% 80%, rgba(214,168,79,.06), transparent 30%),
+                #0b0b0b;
+            border-bottom: 1px solid var(--rwd-border);
+        }
+
+        .checkout-hero::before {
+            content: "";
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            border: 1px solid rgba(214,168,79,.12);
+            border-radius: 50%;
+            right: -140px;
+            top: -140px;
+        }
+
+        .checkout-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .checkout-label {
+            color: var(--rwd-gold);
+            font-size: 10px;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .checkout-hero h1 {
+            margin: 12px 0 15px;
+            font-family: "DM Serif Display", serif;
+            font-size: clamp(45px, 7vw, 70px);
+            font-weight: 400;
+            line-height: 1.05;
+        }
+
+        .checkout-hero h1 span {
+            color: var(--rwd-gold);
+        }
+
+        .checkout-hero p {
+            color: #999;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        /* MAIN */
+
+        .checkout-main {
+            padding: 75px 20px 90px;
+            background: #0b0b0b;
+        }
+
+        .checkout-wrapper {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(310px, .75fr);
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* CUSTOMER CARD */
+
+        .checkout-card {
+            background: linear-gradient(145deg, #171717, #111);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 22px;
+            padding: 32px;
+            box-shadow: 0 20px 50px rgba(0,0,0,.25);
+        }
+
+        .checkout-card .featured-tag {
+            color: var(--rwd-gold);
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            font-weight: 700;
+        }
+
+        .checkout-card h2 {
+            margin: 8px 0 10px;
+            font-family: "DM Serif Display", serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        .checkout-card-intro {
+            color: #929292;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+
+        /* FORM */
+
+        .checkout-form-group {
+            margin-bottom: 21px;
+        }
+
+        .checkout-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #eee;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .required {
+            color: var(--rwd-gold);
+        }
+
+        .checkout-form-group input,
+        .checkout-form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px 15px;
+            border: 1px solid rgba(255,255,255,.11);
+            border-radius: 11px;
+            background: #0d0d0d;
+            color: #fff;
+            font-family: inherit;
+            font-size: 13px;
+            outline: none;
+            transition: .25s ease;
+        }
+
+        .checkout-form-group input::placeholder,
+        .checkout-form-group textarea::placeholder {
+            color: #666;
+        }
+
+        .checkout-form-group input:focus,
+        .checkout-form-group textarea:focus {
+            border-color: var(--rwd-gold);
+            box-shadow: 0 0 0 3px rgba(214,168,79,.08);
+        }
+
+        .checkout-form-group textarea {
+            min-height: 115px;
+            resize: vertical;
+        }
+
+        .form-note {
+            color: #777;
+            font-size: 11px;
+            line-height: 1.6;
+            margin: 6px 0 0;
+        }
+
+        /* SUBMIT BUTTON */
+
+        .whatsapp-checkout-btn {
+            width: 100%;
+            border: none;
+            margin-top: 8px;
+            padding: 15px 20px;
+            border-radius: 30px;
+            background: var(--rwd-gold);
+            color: #111;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .whatsapp-checkout-btn:hover {
+            background: var(--rwd-gold-light);
+            transform: translateY(-2px);
+        }
+
+        .checkout-back {
+            display: block;
+            margin-top: 18px;
+            color: #777;
+            text-decoration: none;
+            font-size: 12px;
+            transition: .2s ease;
+        }
+
+        .checkout-back:hover {
+            color: var(--rwd-gold);
+        }
+
+        /* ORDER SUMMARY */
+
+        .order-summary {
+            background: linear-gradient(145deg, #191919, #0f0f0f);
+            border: 1px solid rgba(214,168,79,.2);
+            color: #fff;
+            border-radius: 22px;
+            padding: 28px;
+            position: sticky;
+            top: 105px;
+            box-shadow: 0 20px 50px rgba(0,0,0,.3);
+        }
+
+        .order-summary .featured-tag {
+            color: var(--rwd-gold);
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .order-summary h2 {
+            margin: 7px 0 20px;
+            font-family: "DM Serif Display", serif;
+            font-size: 30px;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        .checkout-items {
+            display: grid;
+            gap: 0;
+        }
+
+        .checkout-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,.08);
+            font-size: 13px;
+        }
+
+        .checkout-item-name {
+            color: #ddd;
+        }
+
+        .checkout-item-price {
+            color: var(--rwd-gold);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .checkout-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,.08);
+            color: #999;
+            font-size: 13px;
+        }
+
+        .checkout-total-row strong {
+            color: #fff;
+        }
+
+        .checkout-total {
+            color: var(--rwd-gold) !important;
+            font-size: 24px;
+        }
+
+        .delivery-note {
+            margin-top: 20px;
+            padding: 17px;
+            background: rgba(214,168,79,.07);
+            border: 1px solid rgba(214,168,79,.16);
+            border-radius: 13px;
+            color: #999;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .delivery-note strong {
+            color: var(--rwd-gold);
+        }
+
+        /* TRUST */
+
+        .checkout-trust {
+            max-width: 1050px;
+            margin: 60px auto 0;
+            text-align: center;
+        }
+
+        .checkout-trust .featured-tag {
+            color: var(--rwd-gold);
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            font-weight: 700;
+        }
+
+        .checkout-trust h2 {
+            margin: 8px 0 10px;
+            font-family: "DM Serif Display", serif;
+            font-size: 36px;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        .checkout-trust > p:not(.featured-tag) {
+            color: #888;
+            font-size: 13px;
+        }
+
+        .checkout-trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .trust-box {
+            background: #151515;
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 18px;
+            padding: 27px 20px;
+            transition: .25s ease;
+        }
+
+        .trust-box:hover {
+            border-color: rgba(214,168,79,.3);
+            transform: translateY(-3px);
+        }
+
+        .trust-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(214,168,79,.08);
+            border: 1px solid rgba(214,168,79,.2);
+            font-size: 22px;
+        }
+
+        .trust-box h3 {
+            color: #fff;
+            font-size: 15px;
+            margin: 5px 0 9px;
+        }
+
+        .trust-box p {
+            color: #858585;
+            font-size: 12px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* FOOTER */
+
+        .checkout-page footer {
+            background: #080808;
+            border-top: 1px solid rgba(214,168,79,.14);
+        }
+
+        .checkout-page footer h3,
+        .checkout-page footer h4 {
+            color: #fff;
+        }
+
+        .checkout-page footer p,
+        .checkout-page footer li {
+            color: #888;
+        }
+
+        .checkout-page footer a {
+            color: #999;
+        }
+
+        .checkout-page footer a:hover {
+            color: var(--rwd-gold);
+        }
+
+        .checkout-page .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.07);
+        }
+
+        /* WHATSAPP */
+
+        .checkout-page .whatsapp-btn {
+            background: var(--rwd-gold);
+            color: #111;
+            box-shadow: 0 10px 30px rgba(214,168,79,.22);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .checkout-page #navbar ul {
+                gap: 16px;
+            }
+
+            .checkout-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .order-summary {
+                position: static;
+            }
+
+            .checkout-trust-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .checkout-page .header-inner {
+                min-height: 70px;
+            }
+
+            .checkout-page .rwd-brand-mark {
+                width: 42px;
+                height: 42px;
+            }
+
+            .checkout-page .rwd-brand-text strong {
+                font-size: 14px;
+            }
+
+            .checkout-page .rwd-brand-text span {
+                font-size: 7px;
+            }
+
+            .checkout-hero {
+                padding: 75px 20px 65px;
+            }
+
+            .checkout-main {
+                padding: 55px 15px 70px;
+            }
+
+            .checkout-card,
+            .order-summary {
+                padding: 22px;
+                border-radius: 18px;
+            }
+
+            .checkout-card h2 {
+                font-size: 28px;
+            }
+
+            .checkout-total {
+                font-size: 21px;
+            }
+
+            .checkout-trust {
+                margin-top: 45px;
+            }
+
+            .checkout-trust h2 {
+                font-size: 31px;
+            }
+        }
+    </style>
+</head>
+
+<body class="checkout-page">
+
+    <!-- HEADER -->
+    <header class="rwd-header">
+
+        <div class="container header-inner">
+
+            <a href="index.html" class="rwd-brand">
+                <div class="rwd-brand-mark">RWD</div>
+
+                <div class="rwd-brand-text">
+                    <strong>Remi's</strong>
+                    <span>WANKE DELIGHT</span>
+                </div>
+            </a>
+
+            <nav id="navbar">
+                <ul>
+
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="menu.html">
+                            Menu
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="cart.html">
+                            Order
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="cart.html" class="header-cart">
+                            🛒 <span id="cartCount">0</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu">
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="checkout-hero">
+
+        <div class="checkout-hero-content">
+
+            <div class="checkout-label">
+                COMPLETE YOUR ORDER
+            </div>
+
+            <h1>
+                Ready to <span>Order?</span>
+            </h1>
+
+            <p>
+                Enter your delivery details below and send your
+                order directly to Remi's Wanke Delight through WhatsApp.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHECKOUT -->
+    <section class="checkout-main">
+
+        <div class="container checkout-wrapper">
+
+            <!-- CUSTOMER INFORMATION -->
+            <div class="checkout-card">
+
+                <p class="featured-tag">
+                    CUSTOMER DETAILS
+                </p>
+
+                <h2>
+                    Where Should We Deliver?
+                </h2>
+
+                <p class="checkout-card-intro">
+                    Please provide your details below so we can
+                    process your order and arrange delivery.
+                </p>
+
+
+                <form id="checkoutForm">
+
+                    <!-- NAME -->
+                    <div class="checkout-form-group">
+
+                        <label for="customerName">
+                            Full Name <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            name="customerName"
+                            placeholder="Enter your full name"
+                            required>
+
+                    </div>
+
+
+                    <!-- PHONE -->
+                    <div class="checkout-form-group">
+
+                        <label for="customerPhone">
+                            Phone Number <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="customerPhone"
+                            name="customerPhone"
+                            placeholder="e.g. 08012345678"
+                            required>
+
+                        <p class="form-note">
+                            We'll use this number to contact you about your order.
+                        </p>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+                    <div class="checkout-form-group">
+
+                        <label for="customerEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="customerEmail"
+                            name="customerEmail"
+                            placeholder="you@example.com">
+
+                    </div>
+
+
+                    <!-- ADDRESS -->
+                    <div class="checkout-form-group">
+
+                        <label for="customerAddress">
+                            Delivery Address <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="customerAddress"
+                            name="customerAddress"
+                            placeholder="Enter your full delivery address"
+                            required></textarea>
+
+                    </div>
+
+
+                    <!-- LOCATION -->
+                    <div class="checkout-form-group">
+
+                        <label for="customerLocation">
+                            Area / Location <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerLocation"
+                            name="customerLocation"
+                            placeholder="e.g. Megida, Lagos"
+                            required>
+
+                        <p class="form-note">
+                            Delivery charges depend on your location.
+                        </p>
+
+                    </div>
+
+
+                    <!-- ORDER NOTE -->
+                    <div class="checkout-form-group">
+
+                        <label for="orderNote">
+                            Order Note
+                        </label>
+
+                        <textarea
+                            id="orderNote"
+                            name="orderNote"
+                            placeholder="Any special instructions for your order?"></textarea>
+
+                    </div>
+
+
+                    <!-- SUBMIT -->
+                    <button
+                        type="submit"
+                        class="btn whatsapp-checkout-btn">
+
+                        💬 Send Order Through WhatsApp
+
+                    </button>
+
+
+                    <a href="cart.html" class="checkout-back">
+                        ← Back to Cart
+                    </a>
+
+                </form>
+
+            </div>
+
+
+            <!-- ORDER SUMMARY -->
+            <div class="order-summary">
+
+                <p class="featured-tag">
+                    YOUR ORDER
+                </p>
+
+                <h2>
+                    Order Summary
+                </h2>
+
+
+                <!-- ITEMS -->
+                <div
+                    id="checkoutItems"
+                    class="checkout-items">
+
+                    <!-- JavaScript loads checkout items -->
+
+                </div>
+
+
+                <!-- SUBTOTAL -->
+                <div class="checkout-total-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong id="checkoutSubtotal">
+                        ₦0
+                    </strong>
+
+                </div>
+
+
+                <!-- DELIVERY -->
+                <div class="checkout-total-row">
+
+                    <span>
+                        Delivery
+                    </span>
+
+                    <span>
+                        Location based
+                    </span>
+
+                </div>
+
+
+                <!-- TOTAL -->
+                <div class="checkout-total-row">
+
+                    <strong>
+                        Total Before Delivery
+                    </strong>
+
+                    <strong
+                        id="checkoutTotal"
+                        class="checkout-total">
+
+                        ₦0
+
+                    </strong>
+
+                </div>
+
+
+                <!-- DELIVERY NOTICE -->
+                <div class="delivery-note">
+
+                    🚚 <strong>Delivery Notice</strong>
+
+                    <br>
+
+                    Delivery is not free. The delivery fee
+                    depends on your location and will be
+                    confirmed before your order is completed.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRUST -->
+        <div class="container checkout-trust">
+
+            <p class="featured-tag">
+                REMI'S WANKE DELIGHT
+            </p>
+
+            <h2>
+                Ordering Made Easy
+            </h2>
+
+            <p>
+                Your order is reviewed and confirmed with you
+                through WhatsApp.
+            </p>
+
+
+            <div class="checkout-trust-grid">
+
+                <div class="trust-box">
+
+                    <div class="trust-icon">
+                        🍚
+                    </div>
+
+                    <h3>
+                        Fresh Meals
+                    </h3>
+
+                    <p>
+                        Delicious meals prepared for your order.
+                    </p>
+
+                </div>
+
+
+                <div class="trust-box">
+
+                    <div class="trust-icon">
+                        💬
+                    </div>
+
+                    <h3>
+                        WhatsApp Confirmation
+                    </h3>
+
+                    <p>
+                        Communicate directly with us about your order.
+                    </p>
+
+                </div>
+
+
+                <div class="trust-box">
+
+                    <div class="trust-icon">
+                        🚚
+                    </div>
+
+                    <h3>
+                        Flexible Delivery
+                    </h3>
+
+                    <p>
+                        Delivery charges depend on your location.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <h3>
+                        Remi's Wanke Delight
+                    </h3>
+
+                    <p>
+                        Delicious meals prepared with care
+                        for our customers every day.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Quick Links
+                    </h4>
+
+                    <ul>
+
+                        <li>
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="menu.html">
+                                Menu
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="about.html">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Contact
+                    </h4>
+
+                    <ul>
+
+                        <li>
+                            📞
+                            <a href="tel:+2347016253712">
+                                07016253712
+                            </a>
+                        </li>
+
+                        <li>
+                            📧
+                            <a href="mailto:remilekunvictoria220@gmail.com">
+                                remilekunvictoria220@gmail.com
+                            </a>
+                        </li>
+
+                        <li>
+                            📍 Megida Bus Stop
+                        </li>
+
+                        <li>
+                            🕐 8:00 AM – 5:00 PM
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Remi's Wanke Delight.
+                    All Rights Reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- WHATSAPP -->
+    <a
+        href="https://wa.me/2347016253712"
+        class="whatsapp-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with Remi's Wanke Delight on WhatsApp">
+
+        💬
+
+    </a>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

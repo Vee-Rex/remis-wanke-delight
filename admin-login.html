@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Admin Login | Remi's Wanke Delight</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        /* =========================
+           RWD LOGO
+        ========================= */
+
+        .rwd-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        .rwd-logo-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #d6a84f;
+            color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 15px;
+            border: 3px solid #222;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+            transition: 0.3s ease;
+        }
+
+        .rwd-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .rwd-logo-name {
+            font-size: 17px;
+            font-weight: 800;
+            color: #222;
+        }
+
+        .rwd-logo-subtitle {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #777;
+        }
+
+        .rwd-logo:hover .rwd-logo-icon {
+            transform: rotate(-8deg) scale(1.08);
+        }
+
+        @keyframes logoFloat {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-4px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           ADMIN LOGIN PAGE
+        ========================= */
+
+        .admin-login-page {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #222;
+            padding: 25px;
+        }
+
+        .admin-login {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .admin-login-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 40px 35px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .admin-login-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 35px;
+            text-decoration: none;
+        }
+
+        .admin-login-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .admin-login-icon {
+            display: block;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .admin-login-heading .featured-tag {
+            color: #d6a84f;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 0 0 8px;
+        }
+
+        .admin-login-heading h1 {
+            margin: 0 0 8px;
+            color: #222;
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .admin-login-heading p:last-child {
+            margin: 0;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .admin-login-card .form-group {
+            margin-bottom: 20px;
+        }
+
+        .admin-login-card label {
+            display: block;
+            margin-bottom: 8px;
+            color: #222;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .admin-login-card input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fafafa;
+            color: #222;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: 0.25s ease;
+        }
+
+        .admin-login-card input:focus {
+            border-color: #d6a84f;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(214, 168, 79, 0.15);
+        }
+
+        .admin-login-button {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            padding: 14px 20px;
+            border-radius: 10px;
+            background: #222;
+            color: #fff;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.25s ease;
+        }
+
+        .admin-login-button:hover {
+            background: #d6a84f;
+            color: #222;
+            transform: translateY(-2px);
+        }
+
+        .login-error {
+            display: none;
+            margin: 15px 0 0;
+            padding: 11px 12px;
+            border-radius: 8px;
+            background: #fff0f0;
+            color: #c62828;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .admin-back-link {
+            display: block;
+            margin-top: 25px;
+            color: #777;
+            text-align: center;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.2s ease;
+        }
+
+        .admin-back-link:hover {
+            color: #d6a84f;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 500px) {
+            .admin-login-page {
+                padding: 15px;
+            }
+
+            .admin-login-card {
+                padding: 30px 22px;
+                border-radius: 15px;
+            }
+
+            .admin-login-heading h1 {
+                font-size: 26px;
+            }
+
+            .rwd-logo-icon {
+                width: 46px;
+                height: 46px;
+                font-size: 13px;
+            }
+
+            .rwd-logo-name {
+                font-size: 15px;
+            }
+
+            .rwd-logo-subtitle {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body class="admin-login-page">
+
+    <main class="admin-login">
+
+        <div class="admin-login-card">
+
+            <!-- RWD LOGO -->
+            <a
+                href="index.html"
+                class="rwd-logo admin-login-logo"
+                aria-label="Remi's Wanke Delight Home"
+            >
+                <div class="rwd-logo-icon">
+                    RWD
+                </div>
+
+                <div class="rwd-logo-text">
+                    <span class="rwd-logo-name">
+                        Remi's Wanke
+                    </span>
+
+                    <span class="rwd-logo-subtitle">
+                        DELIGHT
+                    </span>
+                </div>
+            </a>
+
+            <!-- HEADING -->
+            <div class="admin-login-heading">
+
+                <span class="admin-login-icon">
+                    🔐
+                </span>
+
+                <p class="featured-tag">
+                    ADMIN AREA
+                </p>
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+                <p>
+                    Sign in to manage your restaurant orders.
+                </p>
+
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="adminLoginForm">
+
+                <div class="form-group">
+                    <label for="adminUsername">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="adminUsername"
+                        placeholder="Enter username"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="adminPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="adminPassword"
+                        placeholder="Enter password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn admin-login-button"
+                >
+                    Login to Dashboard
+                </button>
+
+                <p
+                    id="loginError"
+                    class="login-error"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+            <!-- BACK TO WEBSITE -->
+            <a
+                href="index.html"
+                class="admin-back-link"
+            >
+                ← Back to Website
+            </a>
+
+        </div>
+
+    </main>
+
+    <script>
+        const loginForm = document.getElementById("adminLoginForm");
+        const errorMessage = document.getElementById("loginError");
+
+        const ADMIN_USERNAME = "admin";
+        const ADMIN_PASSWORD = "RemiAdmin2026";
+
+        loginForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const username =
+                document.getElementById("adminUsername").value.trim();
+
+            const password =
+                document.getElementById("adminPassword").value;
+
+            if (
+                username === ADMIN_USERNAME &&
+                password === ADMIN_PASSWORD
+            ) {
+
+                sessionStorage.setItem(
+                    "remiAdminLoggedIn",
+                    "true"
+                );
+
+                window.location.href = "admin.html";
+
+            } else {
+
+                errorMessage.textContent =
+                    "Incorrect username or password.";
+
+                errorMessage.style.display = "block";
+
+            }
+
+        });
+    </script>
+
+</body>
+</html>
